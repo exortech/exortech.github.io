@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" class="exortech">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Owen Rogers">
+        <meta name="description" content="Exortech Consulting web site">
+
+        <%
+        var title = page.title;
+
+        if (is_archive()) {
+            title = __('archive_a');
+
+            if (is_month()) {
+                title += ': ' + page.year + '/' + page.month;
+            } else if (is_year()) {
+                title += ': ' + page.year;
+            }
+        } else if (is_category()) {
+            title = __('category') + ': ' + page.category;
+        } else if (is_tag()) {
+            title = __('tag') + ': ' + page.tag;
+        }
+        %>
+        <title><% if (title) { %><%= title %> | <% } %><%= config.title %></title>
+
+        <% if (theme.rss) { %>
+            <link rel="alternate" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+        <% } %>
+        <% if (theme.favicon) { %>
+            <link rel="icon" href="<%- theme.favicon %>">
+        <% } %>
+        <% if (config.highlight.enable) { %>
+            <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+        <% } %>
+        <!-- <%- css('css/style') %> -->
+
+        <!-- Bootstrap Core CSS -->
+        <%- css('plugins/bootstrap/css/bootstrap.min.css') %>
+
+        <!-- Custom CSS -->
+        <%- css('plugins/agency/css/agency.css') %>
+        <%- css('css/style.css') %>
+
+        <!-- Custom Fonts -->
+        <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+  <!-- <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %> -->
+
+    </head>
+
+
