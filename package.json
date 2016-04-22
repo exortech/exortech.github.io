@@ -30,6 +30,7 @@
     "copy": "npm run copy:animated-header & npm run copy:bootstrap & npm run copy:font-awesome & npm run copy:jquery",
     "env": "env",
     "hexo": "node_modules/hexo/bin/hexo",
-    "start": "node_modules/hexo/bin/hexo server"
+    "start": "node_modules/hexo/bin/hexo server",
+    "build": "node_modules/hexo/bin/hexo generate && cp public/index.html ./index.html"
   }
 }
