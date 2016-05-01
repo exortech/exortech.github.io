@@ -69,3 +69,5 @@ theme: exortech
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+favicon: /public/favicon.ico # path from root of hexo site
